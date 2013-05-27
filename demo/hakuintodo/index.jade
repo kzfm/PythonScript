@@ -1,0 +1,66 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width')
+    title Hakuin Todo
+    link(rel='stylesheet', href='stylesheets/app.css')
+    script(src='javascripts/vendor/custom.modernizr.js')
+  body
+    .row
+      .large-12.columns
+        h2 Hakuin Todo
+        p Frontend Python
+        hr
+    .row
+      .large-8.columns
+        .row.collapse
+          .large-10.columns
+            input#taskinput(type="text", placeholder="What needs to be done?")
+          .large-2.columns
+            a#newtask.button.prefix(href="#") Add
+        .items
+      .large-4.columns
+        h4 Other Resources
+        p Once you've exhausted the fun in this document, you should check out:
+        ul.disc
+          li
+            a(href='http://apppyjs.appspot.com/') PythonScript
+            br
+            | PythonScript is a subset of Python. It is compiled to plain old Javascript.
+          li
+            a(href='http://foundation.zurb.com/docs') Foundation Documentation
+            br
+            | Everything you need to know about using the framework.
+          li
+            a(href='TodoMVC') TodoMVC
+            br
+            | Helping you select an MV* framework
+          li
+            a(href='http://en.wikipedia.org/wiki/Hakuin_Ekaku') Hakuin
+            br
+            | 駿河には過ぎたるものが二つあり、富士のお山に原の白隠
+          li
+            a(href='http://www.hakuinmasamune.com/') 白隠正宗
+            br
+            | Japanese sake!
+    script(src='javascripts/jquery.js')
+    script(src='javascripts/pythonscript.js')
+    script(src='javascripts/jquery.py.js')
+    script(src='javascripts/app.py.js')
+    script(src='javascripts/foundation/foundation.js')
+    // script(src='javascripts/foundation/foundation.joyride.js')
+    // script(src='javascripts/foundation/foundation.alerts.js')
+    // script(src='javascripts/foundation/foundation.forms.js')
+    // script(src='javascripts/foundation/foundation.cookie.js')
+    // script(src='javascripts/foundation/foundation.section.js')
+    // script(src='javascripts/foundation/foundation.magellan.js')
+    // script(src='javascripts/foundation/foundation.tooltips.js')
+    // script(src='javascripts/foundation/foundation.placeholder.js')
+    // script(src='javascripts/foundation/foundation.topbar.js')
+    // script(src='javascripts/foundation/foundation.reveal.js')
+    // script(src='javascripts/foundation/foundation.orbit.js')
+    // script(src='javascripts/foundation/foundation.clearing.js')
+    // script(src='javascripts/foundation/foundation.dropdown.js')
+    script
+      $(document).foundation();
