@@ -16,12 +16,13 @@ class Events():
             lst.append(callback)
             self.events.set(ev, lst)
 
-    def trigger(self, ev, *args):
+    def trigger(self, ev, args):
         var(lst, cb, args)
+        print ev
         lst = self.events.get(ev)
         if lst:
             for cb in lst:
-                if args.__len__() > 0:
+                if args:
                     cb(args)
                 else:
                     cb()
@@ -34,8 +35,6 @@ class Model():
     def __init__(self):
         self.id = "c-" + _counter
         _counter = _counter + 1
-        # fixme: doesn't work 
-        #e.trigger("create")
 
     def to_string(self):
         return "<" + self.__class__.__name__ + "(" + self.id + ")>"
@@ -56,7 +55,6 @@ class Model():
             e.trigger("fetch")
 
     def destroy(self):
-        print "revoke destroy"
         e.trigger("destroy", self)
 
 
@@ -95,16 +93,16 @@ class Collection():
         self.models = new_models
         e.trigger("remove", model)
 
-
 class Controller():
     def __init__(self, tag, el):
         if el == None:
-            el = JS('document.createElement("div")')
+            el = '<div></div>'
         self.el = J(el)
 
     def release(self):
         j = self.el.j
         JS('j.remove()')
+
 
 # ============================ #
 #        Application           #
@@ -135,6 +133,7 @@ class Task(Controller):
         self.model.destroy()
         self.release()
 
+
 class TaskList(Collection):
     def __init__(self):
         Collection.__init__(self)
@@ -153,13 +152,15 @@ class TaskApp(Controller):
         button = J("#newtask")
         button.bind("click", false, self.create)
         e.bind("add", self.render)
-        #print self.el.html()
 
     def create(self):
-        name = JS('jQuery("#taskinput").val()')
+        j = J("#taskinput").j
+        name =  JS("j.val()")
         if name != "":
             self.collection.add(TaskModel(name))
-        JS('jQuery("#taskinput").val("")')
+            j = J("#taskinput").j
+            empty_text = ""
+            JS('j.val(empty_text)')
 
     def render(self):
         print "render tasklist"
@@ -167,12 +168,7 @@ class TaskApp(Controller):
         JS('j.empty()')
         for m in self.collection.models:
             task = Task(m)
-            h = task.html()
-            self.el.append(h)
-
-#collection = TaskList()
-#m1 = TaskModel("mymodel1")
-#collection.add(m1)
+            self.el.append(task.html())
 
 print "application start"
-c = TaskApp(".items", TaskList())
+TaskApp("#items", TaskList())

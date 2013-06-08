@@ -14,11 +14,11 @@
   visibility: hidden;
 }
 
-.items .row.collapse:hover .taskbutton {
+#items .row.collapse:hover .taskbutton {
   visibility: visible;
 }
 
-.items .row.collapse:hover {
+#items .row.collapse:hover {
   background: #eee;
 }
 
