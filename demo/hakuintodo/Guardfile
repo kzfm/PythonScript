@@ -5,4 +5,4 @@ from livereload.compiler import shell
 
 Task.add('sass/*.scss', shell('compass compile'))
 Task.add('index.jade', shell('jade index.jade'))
-Task.add('javascripts/app.py', shell('pythonscript < javascripts/app.py > javascripts/app.py.js'))
+Task.add('javascripts/app.py', shell('./mkapp.sh'))
