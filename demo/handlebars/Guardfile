@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+from livereload.task import Task
+from livereload.compiler import shell
+
+#Task.add('sass/*.scss', shell('compass compile'))
+Task.add('index.jade', shell('jade index.jade'))
+Task.add('javascripts/app.py', shell('/usr/local/share/python/pythonscript < javascripts/app.py > javascripts/app.py.js'))
