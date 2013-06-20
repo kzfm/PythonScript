@@ -100,6 +100,11 @@ class J:
         o = JS('j.delay(time, queue_name)')
         return J(o)
 
+    def delegate(self, selector, eventName, handler):
+        j = self.j
+        o = JS('j.delegate(selector, eventName, adapt_arguments(handler))')
+        return J(o)
+
     def dequeue(self, queue_name):
         j = self.j
         o = JS('j.dequeue(queue_name)')
@@ -407,7 +412,6 @@ class J:
         j = self.j
         o = JS('j.mouseup(adapt_arguments(handler))')
         return J(o)
-
 
 def ajax(url, settings):
     return JS("jQuery.ajax(url, settings)")
