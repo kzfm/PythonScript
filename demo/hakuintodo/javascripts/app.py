@@ -93,6 +93,7 @@ class Collection():
         self.models = new_models
         e.trigger("remove", model)
 
+        
 class Controller():
     def __init__(self, tag, el):
         if el == None:
@@ -121,12 +122,16 @@ class Task(Controller):
         self.model = model
         self.el.addClass("row")
         self.el.addClass("collapse")
-        self.el.bind("click", false, self.say)
+        #self.el.bind("click", false, self.say)
+        self.el.delegate(".button", "click", self.say)
 
     def html(self):
-        test_str = "<div class='large-10 columns'>" + self.model.name + "</div>" + \
-        "<div class='large-2 columns'><a href='#' class='button success small expand taskbutton'>Done</a></div>"
-        return self.el.html(test_str)
+        source = "<div class='large-10 columns'>{{name}}</div>" + "<a href='#' class='button success small expand taskbutton'>Done</a>"
+        #"<div class='large-2 columns'>"
+        template =  JS("Handlebars.compile(source)")
+        name = self.model.name
+        data = JS("template({name:name})")
+        return self.el.html(data)
 
     def say(self):
         print "clicked: " + self.model.to_string()

@@ -435,9 +435,9 @@ __args_35 = create_array("collapse");
 __kwargs_35 = {};
 get_attribute(get_attribute(get_attribute(self, "el"), "addClass"), "__call__")(__args_35, __kwargs_35);
 var __args_36, __kwargs_36;
-__args_36 = create_array("click", false, get_attribute(self, "say"));
+__args_36 = create_array(".button", "click", get_attribute(self, "say"));
 __kwargs_36 = {};
-get_attribute(get_attribute(get_attribute(self, "el"), "bind"), "__call__")(__args_36, __kwargs_36);
+get_attribute(get_attribute(get_attribute(self, "el"), "delegate"), "__call__")(__args_36, __kwargs_36);
 }
 
 __Task_attrs.__init__ = __Task___init__;
@@ -446,9 +446,12 @@ var signature, arguments;
 signature = {"kwargs": {}, "args": create_array("self")};
 arguments = get_arguments(signature, args, kwargs);
 var self = arguments['self'];
-test_str = "<div class='large-10 columns'>" + get_attribute(get_attribute(self, "model"), "name") + "</div>" + "<div class='large-2 columns'><a href='#' class='button success small expand taskbutton'>Done</a></div>";
+source = "<div class='large-10 columns'>{{name}}</div>" + "<a href='#' class='button success small expand taskbutton'>Done</a>";
+template = Handlebars.compile(source);
+name = get_attribute(get_attribute(self, "model"), "name");
+data = template({name:name});
 var __args_37, __kwargs_37;
-__args_37 = create_array(test_str);
+__args_37 = create_array(data);
 __kwargs_37 = {};
 return get_attribute(get_attribute(get_attribute(self, "el"), "html"), "__call__")(__args_37, __kwargs_37);
 }
