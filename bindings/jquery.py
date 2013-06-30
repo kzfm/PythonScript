@@ -413,6 +413,10 @@ class J:
         o = JS('j.mouseup(adapt_arguments(handler))')
         return J(o)
 
+    def removeClass(self, klass):
+        j = self.j
+        o = JS('j.removeClass(klass)')
+        return J(o)
+    
 def ajax(url, settings):
     return JS("jQuery.ajax(url, settings)")
-        
