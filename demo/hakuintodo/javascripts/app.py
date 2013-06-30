@@ -93,7 +93,7 @@ class Collection():
         self.models = new_models
         e.trigger("remove", model)
 
-        
+
 class Controller():
     def __init__(self, tag, el):
         if el == None:
@@ -120,20 +120,28 @@ class Task(Controller):
     def __init__(self, model):
         Controller.__init__(self, "div", None)
         self.model = model
-        self.el.addClass("row")
-        self.el.addClass("collapse")
+        self.el.addClass("item")
         #self.el.bind("click", false, self.say)
-        self.el.delegate(".button", "click", self.say)
+        self.el.delegate(".view", "dblclick", self.edit)
+        self.el.delegate(".close", "click", self.close)
+        self.el.delegate(".destroy", "click", self.remove)
 
     def html(self):
-        source = "<div class='large-10 columns'>{{name}}</div>" + "<a href='#' class='button success small expand taskbutton'>Done</a>"
-        #"<div class='large-2 columns'>"
+        source = "<div class='view'>{{name}}<a href='#' class='button destroy taskbutton'>x</a></div>" + "<div class='row collapse edit'><div class='large-10 columns'><input type='text' value={{name}}></div>" + "<div class='large-2 columns'><a class='button prefix close'>ok</a></div></div>"
         template =  JS("Handlebars.compile(source)")
         name = self.model.name
         data = JS("template({name:name})")
         return self.el.html(data)
 
-    def say(self):
+    def edit(self):
+        self.el.addClass("editing")
+        print "double clicked: " + self.model.to_string()
+
+    def close(self):
+        self.el.removeClass("editing")
+        print "remove editing"
+
+    def remove(self):
         print "clicked: " + self.model.to_string()
         self.model.destroy()
         self.release()

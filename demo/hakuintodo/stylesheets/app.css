@@ -6259,11 +6259,26 @@ a.th {
 }
 
 /* line 17, ../sass/app.scss */
-#items .row.collapse:hover .taskbutton {
+#items .item:hover .taskbutton {
   visibility: visible;
 }
 
 /* line 21, ../sass/app.scss */
-#items .row.collapse:hover {
+#items .item:hover {
   background: #eee;
+}
+
+/* line 25, ../sass/app.scss */
+#items .item .edit {
+  display: none;
+}
+
+/* line 29, ../sass/app.scss */
+#items .item.editing .edit {
+  display: block;
+}
+
+/* line 32, ../sass/app.scss */
+#items .item.editing .view {
+  display: none;
 }

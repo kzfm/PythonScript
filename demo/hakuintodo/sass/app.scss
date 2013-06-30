@@ -14,14 +14,24 @@
   visibility: hidden;
 }
 
-#items .row.collapse:hover .taskbutton {
+#items .item:hover .taskbutton {
   visibility: visible;
 }
 
-#items .row.collapse:hover {
+#items .item:hover {
   background: #eee;
 }
 
+#items .item .edit { 
+  display: none;
+}
+
+#items .item.editing .edit {
+  display: block;
+}
+#items .item.editing .view {
+  display: none;
+}
 
 // @import "foundation/components/global"; // *always required
 // @import "foundation/components/grid";

@@ -20,6 +20,11 @@ html
           .large-2.columns
             a#newtask.button.prefix(href="#") Add
         #items
+        footer
+          a.clear(href="#") Clear completed
+          .count
+            span.countVal
+            | left
       .large-4.columns
         h4 Other Resources
         p Once you've exhausted the fun in this document, you should check out:
@@ -45,6 +50,7 @@ html
             br
             | Japanese sake!
     script(src='javascripts/jquery.js')
+    script(src='javascripts/handlebars.js')
     script(src='javascripts/pythonscript.js')
     script(src='javascripts/jquery.py.js')
     script(src='javascripts/app.py.js')
@@ -62,5 +68,6 @@ html
     // script(src='javascripts/foundation/foundation.orbit.js')
     // script(src='javascripts/foundation/foundation.clearing.js')
     // script(src='javascripts/foundation/foundation.dropdown.js')
-    script
+
+    script.
       $(document).foundation();

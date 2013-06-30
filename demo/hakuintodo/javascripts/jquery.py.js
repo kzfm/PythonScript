@@ -1253,6 +1253,21 @@ return get_attribute(J, "__call__")(__args_77, __kwargs_77);
 }
 
 __J_attrs.mouseup = __J_mouseup;
+var __J_removeClass = function(args, kwargs) {
+var signature, arguments;
+signature = {"kwargs": {}, "args": create_array("self", "klass")};
+arguments = get_arguments(signature, args, kwargs);
+var self = arguments['self'];
+var klass = arguments['klass'];
+j = get_attribute(self, "j");
+o = j.removeClass(klass);
+var __args_78, __kwargs_78;
+__args_78 = create_array(o);
+__kwargs_78 = {};
+return get_attribute(J, "__call__")(__args_78, __kwargs_78);
+}
+
+__J_attrs.removeClass = __J_removeClass;
 J = create_class("J", __J_parents, __J_attrs);
 var ajax = function(args, kwargs) {
 var signature, arguments;
