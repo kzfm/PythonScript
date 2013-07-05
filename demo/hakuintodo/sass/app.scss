@@ -10,14 +10,6 @@
 // Import specific parts of Foundation by commenting the import "foundation"
 // and uncommenting what you want below. You must uncomment the following if customizing
 
-.taskbutton {
-  visibility: hidden;
-}
-
-#items .item:hover .taskbutton {
-  visibility: visible;
-}
-
 #items .item:hover {
   background: #eee;
 }
@@ -31,6 +23,21 @@
 }
 #items .item.editing .view {
   display: none;
+}
+
+#items .item .destroy {
+  background: url(../images/destroy.png) no-repeat center center;
+  cursor: pointer;
+  display: none;
+  height: 16px;
+  position: absolute;
+  right: 16px;
+  top: 0px;
+  width: 16px;
+}
+
+#items .item:hover .destroy {
+  display: block;
 }
 
 // @import "foundation/components/global"; // *always required

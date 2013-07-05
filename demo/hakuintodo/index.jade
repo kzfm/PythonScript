@@ -10,7 +10,7 @@ html
     .row
       .large-12.columns
         h2 Hakuin Todo
-        p Frontend Python MVC
+        p Frontend Python MVC Framework
         hr
     .row
       .large-8.columns
@@ -20,11 +20,6 @@ html
           .large-2.columns
             a#newtask.button.prefix(href="#") Add
         #items
-        footer
-          a.clear(href="#") Clear completed
-          .count
-            span.countVal
-            | left
       .large-4.columns
         h4 Other Resources
         p Once you've exhausted the fun in this document, you should check out:
@@ -37,6 +32,10 @@ html
             a(href='http://foundation.zurb.com/docs') Foundation Documentation
             br
             | Everything you need to know about using the framework.
+          li
+            a(href='http://handlebarsjs.com/') handlebars
+            br
+            | ひげ
           li
             a(href='TodoMVC') TodoMVC
             br
@@ -53,6 +52,7 @@ html
     script(src='javascripts/handlebars.js')
     script(src='javascripts/pythonscript.js')
     script(src='javascripts/jquery.py.js')
+    script(src='javascripts/hakuin.py.js')
     script(src='javascripts/app.py.js')
     script(src='javascripts/foundation/foundation.js')
     // script(src='javascripts/foundation/foundation.joyride.js')
